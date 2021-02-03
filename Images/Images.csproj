@@ -1,0 +1,86 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="aleatoirebouton.jpg" />
+    <None Remove="boutonHome.png" />
+    <None Remove="bouton_paramètre1.png" />
+    <None Remove="flèche grise.png" />
+    <None Remove="Personnages\08Pikachu.png" />
+    <None Remove="Personnages\1-Mario.png" />
+    <None Remove="Personnages\10-Ness.png" />
+    <None Remove="Personnages\11-Captain_Falcon.png" />
+    <None Remove="Personnages\12-Rondoudou.png" />
+    <None Remove="Personnages\2-Donkey_Kong.png" />
+    <None Remove="Personnages\3-Link.png" />
+    <None Remove="Personnages\4-Samus.png" />
+    <None Remove="Personnages\5-Yoshi.png" />
+    <None Remove="Personnages\6-Kirby.png" />
+    <None Remove="Personnages\7-Fox.png" />
+    <None Remove="Personnages\8-Pikachu.png" />
+    <None Remove="Personnages\9-Luigi.png" />
+    <None Remove="smashsignblack.png" />
+    <None Remove="Terrains\Champ_de_Bataille.png" />
+    <None Remove="Terrains\Destination_Finale.jpg" />
+    <None Remove="Terrains\Ile_de_Yoshi.png" />
+    <None Remove="Terrains\Ligue_Pokemon_de_Kalos.png" />
+    <None Remove="Terrains\Smash_Ville.png" />
+    <None Remove="Terrains\Stade_Pokemon_2.png" />
+    <None Remove="Terrains\Traversee_de_Lylat.jpg" />
+    <None Remove="Terrains\Ville_et_Centre-Ville.jpg" />
+    <None Remove="Terrains\Yoshi_Story.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="aleatoirebouton.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="boutonHome.png" />
+    <Resource Include="bouton_paramètre1.png" />
+    <Resource Include="flèche grise.png" />
+    <Resource Include="Personnages\10-Ness.png" />
+    <Resource Include="Personnages\11-Captain_Falcon.png" />
+    <Resource Include="Personnages\12-Rondoudou.png" />
+    <Resource Include="Personnages\4-Samus.png" />
+    <Resource Include="Personnages\5-Yoshi.png" />
+    <Resource Include="Personnages\6-Kirby.png" />
+    <Resource Include="Personnages\7-Fox.png" />
+    <Resource Include="Personnages\8-Pikachu.png" />
+    <Resource Include="Personnages\9-Luigi.png" />
+    <Resource Include="smashsignblack.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Terrains\Destination_Finale.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Personnages\1-Mario.png" />
+    <Resource Include="Personnages\2-Donkey_Kong.png" />
+    <Resource Include="Personnages\3-Link.png" />
+    <Resource Include="Terrains\Champ_de_Bataille.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Terrains\Ile_de_Yoshi.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Terrains\Ligue_Pokemon_de_Kalos.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Terrains\Smash_Ville.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Terrains\Stade_Pokemon_2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Terrains\Traversee_de_Lylat.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Terrains\Ville_et_Centre-Ville.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Terrains\Yoshi_Story.png" />
+  </ItemGroup>
+
+</Project>
