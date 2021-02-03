@@ -1,0 +1,60 @@
+﻿<Window x:Class="PartieGraphique.AjouterTerrain"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PartieGraphique.UC"
+        mc:Ignorable="d"
+        Title="AjouterTerrain" Height="450" Width="800" WindowStartupLocation="CenterScreen" MinHeight="450" MinWidth="800" Closing="Window_Closing">
+    <Grid>
+        <Grid Background="#585858">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+               <!--Stack panel de textblock qui affichent le titre des caractéristiques du terrain -->
+                <StackPanel>
+                    <TextBlock Text="Nom : " Style="{StaticResource TextBlockPerso}"/>
+                    <TextBlock Text="Image du terrain :" Style="{StaticResource TextBlockPerso}"/>
+                    <TextBlock Text="Aléas :" Style="{StaticResource TextBlockPerso}"/>
+                </StackPanel>
+                <!-- Bouton pour ajouter une image au terrain-->
+                <Button Background="LightGreen" Height="20" Width="100" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 45 20 0" Click="AjoutImage">
+                    <TextBlock TextWrapping="Wrap" TextAlignment="Center">Ajouter</TextBlock>
+                </Button>
+                
+               <!-- Checkbox pour ajouter ou pas les aléas du terrain -->
+               <CheckBox VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 85 30 30" x:Name="CheckOn" Content="On" BorderThickness="3" IsEnabled="True" IsChecked="False" />
+               <!--Textbox pour saisir le nom du terrain-->
+                <TextBox x:Name="NomTerrain" Height="20" Width="150" Margin="0 10 20 0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                <!--Bouton Ajouter Terrain-->
+                <Button Grid.Row="1" Background="Black" Height="Auto" Width="Auto" MaxHeight="50" MaxWidth="100" Click="BoutonAjouterTerrain" >
+                    <Viewbox>
+                        <TextBlock Text="Ajouter Terrain" Style="{StaticResource TextBlockPerso}"/>
+                    </Viewbox>
+                </Button>
+            </Grid>
+
+            <!--User control  pour revenir sur la PageAccueil-->
+            <local:UCBoutonHome Grid.Column="1" HorizontalAlignment="Right"/>
+            
+            <!--Stack panel pour afficher l'paerçu de l'image du terrain -->
+            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                <TextBlock  Grid.Column="1" Text="Aperçu du terrain :" HorizontalAlignment="Center" Style="{StaticResource TextBlockPerso}" />
+                <Viewbox  Grid.Column="1" MaxHeight="300">
+                    <Image x:Name="imageterrain" Source="/Images;component/smashsignblack.png" Grid.Column="1" MaxHeight="100" Margin="10,25,10,10"/>
+                </Viewbox>
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+</Window>

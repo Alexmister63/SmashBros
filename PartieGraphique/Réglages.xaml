@@ -1,0 +1,93 @@
+﻿<Window x:Class="PartieGraphique.Réglages"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PartieGraphique.UC"
+        mc:Ignorable="d"
+        Title="Réglages" Height="450" Width="800" WindowStartupLocation="CenterScreen" MinHeight="450" MinWidth="800" Closing="Window_Closing">
+    
+        <Grid Background="Gray">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+
+         <!-- Combobox de tout les terrains de l'application-->
+        <ComboBox x:Name="comboboxterrain" Margin="5" SelectionChanged="comboboxterrain_SelectionChanged" ItemsSource="{Binding ListeDesTerrains}" HorizontalAlignment="Center" VerticalAlignment="Center" IsTextSearchEnabled="True" MaxDropDownHeight="100" Text="Terrains" IsEditable="True" IsReadOnly="True" >
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Width="85" Cursor="Hand">
+                        <TextBlock Text="{Binding NomTerrain}" Margin="0 0 0 0"/>
+                    </Grid>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+
+        <!-- Combobox de tout les personnages de l'application-->
+        <ComboBox x:Name="comboboxpersos" Grid.Column="1" Margin="5" SelectionChanged="comboboxpersos_SelectionChanged" ItemsSource="{Binding ListeDesPersos}" HorizontalAlignment="Center" VerticalAlignment="Center" IsTextSearchEnabled="True" MaxDropDownHeight="100" Text="Personnages" IsEditable="True" IsReadOnly="True">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Width="85" Cursor="Hand">
+                        <TextBlock Text="{Binding NomPerso}" Margin="0 0 0 0"/>
+                    </Grid>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        
+        <!--User Control du bouton retour -->
+        <local:UCBoutonHome Grid.Column="2"/>
+            
+        <!-- Image des terrains coordonnée avec la combobox-->    
+        <Viewbox Grid.Row="1">
+            <Image x:Name="imageterrain" Source="{Binding ImageTerrainSource}" ></Image>
+        </Viewbox>
+
+        <!-- Image des personnages coordonnée avec la combobox-->
+        <Viewbox Grid.Row="1" Grid.Column="1">
+        <Image x:Name="imagesource" Source="/Images;component/aleatoirebouton.jpg"></Image>
+        </Viewbox>
+
+        <!-- Stack panel qui contient le nom du terrain sélmectionné dans la combobox-->
+        <StackPanel Grid.Row="2">
+            <TextBlock Text="Nom :" HorizontalAlignment="Center" />
+            <TextBox Name="nomTerrain" IsEnabled="False" Text="{Binding ElementName=comboboxterrain,UpdateSourceTrigger=PropertyChanged,Path=SelectedItem}" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        </StackPanel>
+            
+        <!-- Bouton Ajouter terrain qui mène sur la page AjouterTerrain.xaml-->
+        <Button Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center"  Background="Blue" Foreground="white" Click="Bouton_AjouterTerrain">
+            <TextBlock Style="{StaticResource TextBlockPerso}" Text="Ajouter un terrain"/>
+        </Button>
+            
+         
+
+            <Grid Grid.Column="1" Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+            <!-- Bouton Ajouter Personnage qui mène sur la page AjouterPerso.xaml-->
+            <Button Background="LightGreen" Click="Bouton_AjouterPerso" >
+                    <TextBlock Style="{StaticResource TextBlockPerso}" TextWrapping="Wrap" TextAlignment="Center">Ajouter un nouveau personnage</TextBlock>
+                </Button>
+            <!-- Bouton Modifier Personnage qui mène sur la page PageModifPerso.xaml-->
+            <Button Background="DarkSalmon" Grid.Column="1" Click="BoutonModifierPerso" >
+                <TextBlock Style="{StaticResource TextBlockPerso}" TextWrapping="Wrap" TextAlignment="Center">Modifier ce personnage</TextBlock>
+                </Button>
+              <!-- Bouton supprimer personnage qui permet de supprimer un personnage-->
+                <Button Background="IndianRed" Grid.Column="2" Click="SupprimerPerso">
+                <TextBlock Style="{StaticResource TextBlockPerso}" TextWrapping="Wrap" TextAlignment="Center">Supprimer ce personnage</TextBlock>
+                </Button>
+            </Grid>
+        </Grid>
+    
+</Window>

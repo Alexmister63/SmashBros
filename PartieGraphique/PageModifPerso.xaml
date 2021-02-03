@@ -1,0 +1,126 @@
+﻿<Window x:Class="PartieGraphique.PageModifPerso"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PartieGraphique.UC"
+        mc:Ignorable="d"
+        Title="PageModifPerso" Height="450" Width="800" WindowStartupLocation="CenterScreen" MinHeight="450" MinWidth="800" Closing="Window_Closing">
+    
+        <Grid Background="#585858" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.5*" />
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+
+            <!-- Ces rectangles servent de couleur pour la page-->
+            <!--Rectangle bouton retour-->
+            <Rectangle Grid.Column="3" Fill="AliceBlue"/>
+            <!--Rectangle bouton modifier-->
+            <Rectangle Grid.Row="2" Fill="AliceBlue"/>
+            <!--Rectangle du personnage-->
+            <Rectangle Fill="Red"/>
+            <!--Rectangle terrain 1-->
+            <Rectangle Grid.Column="1" Grid.Row="1" Fill="Red"/>
+            <!--Rectangle terrain 2-->
+            <Rectangle Grid.Column="2" Grid.Row="1" Fill="Red"/>
+            <!--Rectangle terrain 3-->
+            <Rectangle Grid.Column="3" Grid.Row="1" Fill="Red"/>
+
+
+         <!--Image du personnage à ajouter-->
+         <Image x:Name="imageperso" Source="/Images;component/smashsignblack.png" Grid.Row="0" />
+
+         <!--boutton ajouter une image-->
+         <Button Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="Auto" Height="Auto"  Background="Black"  Click="ChoisirImage">
+            <TextBlock Text="Modifier Image" Style="{StaticResource TextBlockPerso}"/>
+        </Button>
+
+         <!-- Bouton ajouter un personnage-->
+        <Button Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto"  Background="Black" Click="BoutonModifPerso" >
+            <TextBlock Text="Confirmer la modification" Style="{StaticResource TextBlockPerso}"/>
+        </Button>
+
+         <!-- Textblock qui affichent le titre des caractéristiques du personnage -->
+            <StackPanel Grid.Column="1">
+                <TextBlock Style="{StaticResource TextBlockPerso}" Text="Nom : "/>
+                <TextBlock Style="{StaticResource TextBlockPerso}" Text="Numéro : "/>
+                <TextBlock Style="{StaticResource TextBlockPerso}" Text="Série d'origine : "/>
+                <TextBlock Style="{StaticResource TextBlockPerso}" Text="Poids : "/>
+                <TextBlock Style="{StaticResource TextBlockPerso}" Text="Move le plus rapide : "/>
+            </StackPanel>
+       
+            <!-- Textbox qui affichent les caractéristiques du personnage -->
+            <StackPanel Grid.Column="2">
+                <TextBox Style="{StaticResource TextBoxPerso}" Text="" x:Name="Nom"/>
+                <TextBox PreviewTextInput="VerificationNum"  Style="{StaticResource TextBoxPerso}" Text="" x:Name="Numero"/>
+                <TextBox Style="{StaticResource TextBoxPerso}" Text="" x:Name="SerieOrigine"/>
+                <TextBox PreviewTextInput="VerificationNum"   Style="{StaticResource TextBoxPerso}" Text="" x:Name="Poids"/>
+                <TextBox Style="{StaticResource TextBoxPerso}" Text="" x:Name="Move"/>
+            </StackPanel>
+
+            <!--User control du bouton home-->
+            <local:UCBoutonHome Grid.Column="3"/>
+
+          <!--Terrains avantageux -->
+          <!-- Terrain 1-->
+          <!--Combobox de tout les terrains pour pouvoir sélectionner un terrain au personnage que l'on veut modifier-->  
+        <ComboBox x:Name="leterrain1" Margin="5" SelectionChanged="Terrainnum1" ItemsSource="{Binding ListeDesTerrains}" HorizontalAlignment="Center" VerticalAlignment="Top" IsTextSearchEnabled="True" MaxDropDownHeight="100" Text="Terrains" IsEditable="True" IsReadOnly="True" Grid.Column="1" Grid.Row="1">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Width="85" Cursor="Hand">
+                            <TextBlock Text="{Binding NomTerrain}" Margin="0 0 0 0"/>
+                        </Grid>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+        <!--Image qui affiche le terrain sélectionné dans la combobox d'au dessus-->
+        <Viewbox Grid.Row="1" Grid.Column="1">
+            <Image x:Name="imageterrain" Source="{Binding ImageTerrainSource}"></Image>
+        </Viewbox>
+
+        <!-- Terrain 2-->
+        <!--Combobox de tout les terrains pour pouvoir sélectionner un terrain au personnage que l'on veut modifier-->
+        <ComboBox x:Name="leterrainN2" Margin="5" SelectionChanged="Terrainnum2" ItemsSource="{Binding ListeDesTerrains}" HorizontalAlignment="Center" VerticalAlignment="Top" IsTextSearchEnabled="True" MaxDropDownHeight="100" Text="Terrains" IsEditable="True" IsReadOnly="True" Grid.Column="2" Grid.Row="1">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Width="85" Cursor="Hand">
+                            <TextBlock Text="{Binding NomTerrain}" Margin="0 0 0 0"/>
+                        </Grid>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+       
+        <!--Image qui affiche le terrain sélectionné dans la combobox d'au dessus-->
+        <Viewbox Grid.Row="1" Grid.Column="2">
+            <Image x:Name="imageterrain2" Source="{Binding ImageTerrainSource}"></Image>
+        </Viewbox>
+
+        <!-- Terrain 3-->
+        <!--Combobox de tout les terrains pour pouvoir sélectionner un terrain au personnage que l'on veut modifier-->
+        <ComboBox x:Name="leterrain3" Margin="5" SelectionChanged="Terrainnum3" ItemsSource="{Binding ListeDesTerrains}" HorizontalAlignment="Center" VerticalAlignment="Top" IsTextSearchEnabled="True" MaxDropDownHeight="100" Text="Terrains" IsEditable="True" IsReadOnly="True" Grid.Column="3" Grid.Row="1">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Width="85" Cursor="Hand">
+                            <TextBlock Text="{Binding NomTerrain}" Margin="0 0 0 0"/>
+                        </Grid>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+        <!--Image qui affiche le terrain sélectionné dans la combobox d'au dessus-->
+        <Viewbox Grid.Row="1" Grid.Column="3">
+            <Image x:Name="imageterrain3" Source="{Binding ImageTerrainSource}"></Image>
+        </Viewbox>
+
+    </Grid>
+    
+</Window>
